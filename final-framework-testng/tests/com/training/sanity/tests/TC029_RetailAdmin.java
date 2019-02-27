@@ -48,16 +48,17 @@ public class TC029_RetailAdmin {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() throws InterruptedException {
+	public void validAdminLogin() throws InterruptedException {
 		retailadmin.sendUserName("admin");
 		retailadmin.sendPassword("admin@123");
 		retailadmin.clickLoginBtn(); 
 		Thread.sleep(3000);
+		screenShot.captureScreenShot("twentyfive");
 		retailadmin.clickLogoutBtn();
 		
 		String Actual="Please enter your login details.";
 		String Expected=driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/div[1]/h1")).getText();
 		Assert.assertEquals(Actual, Expected);
-		screenShot.captureScreenShot("First");
+		screenShot.captureScreenShot("twentysix");
 	}
 }

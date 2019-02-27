@@ -48,23 +48,28 @@ public class TC027_RetailAdmin {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() throws InterruptedException {
+	public void customersOnline() throws InterruptedException {
 		retailadmin.sendUserName("admin");
 		retailadmin.sendPassword("admin@123");
-		screenShot.captureScreenShot("one");
+		screenShot.captureScreenShot("nine");
 		retailadmin.clickLoginBtn();
 		Thread.sleep(3000);
-		screenShot.captureScreenShot("two");
+		screenShot.captureScreenShot("ten");
 		retailadmin.Menu();
-		screenShot.captureScreenShot("Three");
+		screenShot.captureScreenShot("eleven");
 		retailadmin.clickReports();
-		screenShot.captureScreenShot("four");
+		screenShot.captureScreenShot("twelve");
 		retailadmin.clickCustomers();
-		screenShot.captureScreenShot("five");
+		screenShot.captureScreenShot("thirteen");
 		retailadmin.clickCustomersOnline();
-		screenShot.captureScreenShot("six");
-		retailadmin.sendCustomerField("guest");
+		screenShot.captureScreenShot("fourteen");
+		retailadmin.sendCustomerField("manzoor");
+		screenShot.captureScreenShot("fifteen");
+		retailadmin.clickFilterBtn();
+		Thread.sleep(1000);
+		screenShot.captureScreenShot("sixteen");
+		/*retailadmin.sendCustomerField("guest");
 		retailadmin.clickfilter();
-		screenShot.captureScreenShot("seven");
+		screenShot.captureScreenShot("seven");*/
 	}
 }

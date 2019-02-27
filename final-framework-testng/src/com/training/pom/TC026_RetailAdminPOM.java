@@ -16,66 +16,65 @@ public class TC026_RetailAdminPOM {
 	@FindBy(id="input-username")
 	private WebElement userName; 
 
-	@FindBy(id="input-password")
-	private WebElement password;
-
-	@FindBy(xpath="//*[@id=\"content\"]/div/div/div/div/div[2]/form/div[3]/button")
-	private WebElement loginBtn;
-	
-	@FindBy(xpath="//*[@id=\"button-menu\"]/i")
-	private WebElement menu; 
-	
-	@FindBy(xpath="//*[@id=\"menu-report\"]/a/span")
-	private WebElement reports;
-	
-	@FindBy(xpath="<a class=\"parent\">Products</a>")
-	private WebElement products;
-	
-	@FindBy(xpath="//*[@id=\"menu-report\"]/ul/li[2]/ul/li[2]/a")
-	private WebElement purchased;
-	
-	@FindBy(xpath="//*[@id=\"input-status\"]")
-	private WebElement orderstatus;
-	
-	/*@FindBy(id="input-customer")
-	private WebElement customerfield;
-	
-	@FindBy(xpath="//*[@id=\"button-filter\"]")
-	private WebElement filter;*/
-	
 	public void sendUserName(String userName) {
 		this.userName.clear();
 		this.userName.sendKeys(userName);
 	}
+	
+	@FindBy(id="input-password")
+	private WebElement password;
 
 	public void sendPassword(String password) {
 		this.password.clear(); 
 		this.password.sendKeys(password); 
 	}
-
+	
+	@FindBy(xpath="//*[@id=\"content\"]/div/div/div/div/div[2]/form/div[3]/button")
+	private WebElement loginBtn;
+	
 	public void clickLoginBtn() {
 		this.loginBtn.click(); 
 	}
+	
+	@FindBy(xpath="//*[@id=\"button-menu\"]/i")
+	private WebElement menu;
+	
 	public void Menu() {
 		this.menu.click(); 
 	}
+	
+	@FindBy(xpath="//*[@id=\"menu-report\"]/a/span")
+	private WebElement reports;
+	
 	public void clickReports() {
 		this.reports.click(); 
 	}
+	
+	@FindBy(xpath="//*[@id=\"menu-report\"]/ul/li[2]/a")
+	private WebElement products;
+	
 	public void clickProducts() {
 		this.products.click();
 	}
+	
+	@FindBy(xpath="//*[@id=\"menu-report\"]/ul/li[2]/ul/li[2]/a")
+	private WebElement purchased;
+	
 	public void clickPurchased() {
 		this.purchased.click();
 	}
-	public void clickOrderStatus() {
-		this.orderstatus.click();
+	
+	@FindBy(id="input-status")
+	private WebElement orderStatus; 
+
+	public void sendorderStatus(String orderStatus) {
+		this.orderStatus.sendKeys(orderStatus);
 	}
-	/*public void sendCustomerField(String customerfield) {
-		this.customerfield.clear();
-		this.customerfield.sendKeys(customerfield);
+	
+	@FindBy(xpath="//*[@id=\"button-filter\"]/i")
+	private WebElement filterbtn;
+	
+	public void clickFilterBtn() {
+		this.filterbtn.click(); 
 	}
-	public void clickfilter() {
-		this.filter.click();
-	}*/
 }

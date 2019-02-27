@@ -48,23 +48,25 @@ public class TC028_RetailAdmin {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() throws InterruptedException {
+	public void customersActivity() throws InterruptedException {
 		retailadmin.sendUserName("admin");
 		retailadmin.sendPassword("admin@123");
-		screenShot.captureScreenShot("one");
+		screenShot.captureScreenShot("seventeen");
 		retailadmin.clickLoginBtn();
 		Thread.sleep(3000);
-		screenShot.captureScreenShot("two");
+		screenShot.captureScreenShot("eighteen");
 		retailadmin.Menu();
-		screenShot.captureScreenShot("Three");
+		screenShot.captureScreenShot("nineteen");
 		retailadmin.clickReports();
-		screenShot.captureScreenShot("four");
+		screenShot.captureScreenShot("twenty");
 		retailadmin.clickCustomers();
-		screenShot.captureScreenShot("five");
+		screenShot.captureScreenShot("twentyone");
 		retailadmin.clickCustomersActivity();
-		screenShot.captureScreenShot("six");
-		retailadmin.sendCustomerField("guest");
-		retailadmin.clickfilter();
-		screenShot.captureScreenShot("seven");
+		screenShot.captureScreenShot("twentytwo");
+		retailadmin.sendCustomerField("Kaveri Waghmode");
+		screenShot.captureScreenShot("twentythree");
+		retailadmin.clickFilterBtn();
+		Thread.sleep(1000);
+		screenShot.captureScreenShot("twentyfour");
 	}
 }
