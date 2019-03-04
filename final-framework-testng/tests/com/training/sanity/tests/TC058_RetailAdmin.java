@@ -13,15 +13,15 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.RetailAdminReportsPOM;
+import com.training.pom.RetailAdminMarketingPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class TC028_RetailAdmin {
+public class TC058_RetailAdmin {
 
 	private WebDriver driver;
 	private String baseUrl;
-	private RetailAdminReportsPOM retailadmin;
+	private RetailAdminMarketingPOM retailadmin;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -35,10 +35,10 @@ public class TC028_RetailAdmin {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		retailadmin = new RetailAdminReportsPOM(driver); 
+		retailadmin = new RetailAdminMarketingPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
-		screenShot = new ScreenShot(driver); 
-		// open the browser 
+		screenShot = new ScreenShot(driver);
+		// open the browser
 		driver.get(baseUrl);
 	}
 
@@ -48,28 +48,27 @@ public class TC028_RetailAdmin {
 		driver.quit();
 	}
 	@Test
-	public void customersActivity() throws InterruptedException {
+	public void addDiscountToProduct() throws InterruptedException {
 		retailadmin.sendUserName("admin");
 		retailadmin.sendPassword("admin@123");
-		screenShot.captureScreenShot("nineteen");
 		retailadmin.clickLoginBtn();
-		screenShot.captureScreenShot("twenty");
 		retailadmin.Menu();
-		screenShot.captureScreenShot("twentyone");
-		retailadmin.clickReports();
-		screenShot.captureScreenShot("twentytwo");
-		retailadmin.clickCustomers();
-		screenShot.captureScreenShot("twentythree");
-		retailadmin.clickCustomersActivity();
-		screenShot.captureScreenShot("twentyfour");
-		retailadmin.sendCustomerField("priya prabhu");
-		screenShot.captureScreenShot("twentyfive");
-		retailadmin.clickFilterBtn();
-		Thread.sleep(1000);
+		retailadmin.Marketing();
+		screenShot.captureScreenShot("seventyone");
+		retailadmin.clickCoupons();
+		screenShot.captureScreenShot("seventytwo");
+		retailadmin.clickAddNewIcon();
+		screenShot.captureScreenShot("seventythree");
+		retailadmin.sendCouponName("Christm");
+		retailadmin.sendCouponCode("coupon2");
+		retailadmin.sendcouponDiscount("20");
+		retailadmin.sendcouponProduct("Lorem ipsum dolor sit amet");
+		screenShot.captureScreenShot("seventyfour");
+		retailadmin.clickSaveBtn();
 		
-		String Actual="Showing 1 to 7 of 7 (1 Pages)";
-		String Expected=driver.findElement(By.xpath("//*[@id=\"content\"]/div[2]/div/div[2]/div[3]/div[2]")).getText();
+		String Actual="Coupons";
+		String Expected=driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/div/h1")).getText();
 		Assert.assertEquals(Actual, Expected);
-		screenShot.captureScreenShot("twentysix");
-		}
+		screenShot.captureScreenShot("seventyfive");
+	}
 }

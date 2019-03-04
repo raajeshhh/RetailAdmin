@@ -7,28 +7,22 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
-public class TC030_RetailUserLoginPOM {
+public class RetailUserDetailsPOM {
 	private WebDriver driver; 
 
-	public TC030_RetailUserLoginPOM(WebDriver driver) {
+	public RetailUserDetailsPOM(WebDriver driver) {
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(xpath="//*[@id=\"Menu_Wmt3OMY3\"]/nav/ul/li[2]/a/span/span/i")
-	private WebElement user;
-	
-	public void Account() {
-		this.user.click();
-	}
-	
-	/*@FindBy(xpath="//*[@id=\"Menu_Wmt3OMY3\"]/nav/ul/li[2]/ul/li[1]/a/span")
+	//Entering into User Login page of the site
+	@FindBy(xpath="//*[@id=\"Menu_Wmt3OMY3\"]/nav/ul/li[2]/ul/li[1]/a/span")
 	private WebElement login;
 	
 	public void login() {
 		this.login.click();
-	}*/
+	}
 	
+	//Entering admin email
 	@FindBy(id="input-email")
 	private WebElement email;
 	
@@ -37,6 +31,7 @@ public class TC030_RetailUserLoginPOM {
 			this.email.sendKeys(email);
 		}
 
+	//Entering user password
 	@FindBy(id="input-password")
 	private WebElement password;
 	public void password(String password) {
@@ -44,6 +39,7 @@ public class TC030_RetailUserLoginPOM {
 			this.password.sendKeys(password);
 		}
 
+	//Clicking Login Button
 	@FindBy(xpath="//*[@id=\"System_nyHsmShk\"]/div/div[2]/div/form/div/div[2]/input")
 	private WebElement loginBtn;
 	
@@ -51,6 +47,7 @@ public class TC030_RetailUserLoginPOM {
 			this.loginBtn.click();
 		}
 	
+	//Clicking user Button for menu
 	@FindBy(xpath="//*[@id=\"Menu_Wmt3OMY3\"]/nav/ul/li[2]/a/span/span/i")
 	private WebElement userIcon;
 	
@@ -58,6 +55,7 @@ public class TC030_RetailUserLoginPOM {
 			this.userIcon.click();
 		}
 	
+	//Logging out from the session
 	@FindBy(xpath="//*[@id=\"Menu_Wmt3OMY3\"]/nav/ul/li[2]/ul/li[4]/a/span")
 	private WebElement LogoutBtn;
 	

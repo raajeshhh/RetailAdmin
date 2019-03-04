@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.TC027_RetailAdminPOM;
+import com.training.pom.RetailAdminReportsPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
@@ -21,7 +21,7 @@ public class TC027_RetailAdmin {
 
 	private WebDriver driver;
 	private String baseUrl;
-	private TC027_RetailAdminPOM retailadmin;
+	private RetailAdminReportsPOM retailadmin;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -35,7 +35,7 @@ public class TC027_RetailAdmin {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		retailadmin = new TC027_RetailAdminPOM(driver); 
+		retailadmin = new RetailAdminReportsPOM(driver); 
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -51,25 +51,24 @@ public class TC027_RetailAdmin {
 	public void customersOnline() throws InterruptedException {
 		retailadmin.sendUserName("admin");
 		retailadmin.sendPassword("admin@123");
-		screenShot.captureScreenShot("nine");
-		retailadmin.clickLoginBtn();
-		Thread.sleep(3000);
 		screenShot.captureScreenShot("ten");
-		retailadmin.Menu();
+		retailadmin.clickLoginBtn();
 		screenShot.captureScreenShot("eleven");
-		retailadmin.clickReports();
+		retailadmin.Menu();
 		screenShot.captureScreenShot("twelve");
-		retailadmin.clickCustomers();
+		retailadmin.clickReports();
 		screenShot.captureScreenShot("thirteen");
-		retailadmin.clickCustomersOnline();
+		retailadmin.clickCustomers();
 		screenShot.captureScreenShot("fourteen");
-		retailadmin.sendCustomerField("manzoor");
+		retailadmin.clickCustomersOnline();
 		screenShot.captureScreenShot("fifteen");
-		retailadmin.clickFilterBtn();
-		Thread.sleep(1000);
+		retailadmin.sendCustomerField("manzoor");
 		screenShot.captureScreenShot("sixteen");
-		/*retailadmin.sendCustomerField("guest");
-		retailadmin.clickfilter();
-		screenShot.captureScreenShot("seven");*/
+		retailadmin.clickFilterBtn();
+		
+		String Actual="Showing 0 to 0 of 0 (0 Pages)";
+		String Expected=driver.findElement(By.xpath("//*[@id=\"content\"]/div[2]/div/div[2]/div[3]/div[2]")).getText();
+		Assert.assertEquals(Actual, Expected);
+		screenShot.captureScreenShot("seventeen");
 	}
 }
