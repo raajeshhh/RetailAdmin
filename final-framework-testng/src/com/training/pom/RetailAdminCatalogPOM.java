@@ -183,20 +183,20 @@ public class RetailAdminCatalogPOM {
 	
 	//Entering into categories field
 	@FindBy(id="input-category")
-	private WebElement categories;
+	private WebElement categoriesField;
 	
 	public void clickCategories() {
-		this.categories.click();
+		this.categoriesField.click();
 	}
 	
 	//Entering different categories' values
-	/*@FindBy(id="input-category")
+	@FindBy(id="input-category")
 	private WebElement categories;
 	
 	public void sendCategories(String categories) {
 		this.categories.clear();
 		this.categories.sendKeys(categories);
-	}*/
+	}
 	
 	//Opening products attributes tab
 	@FindBy(xpath="//*[@id=\"form-product\"]/ul/li[4]/a")
@@ -244,6 +244,13 @@ public class RetailAdminCatalogPOM {
 	
 	public void clickRewardPointsTab() {
 		this.RewardPointsTab.click();
+	}
+	
+	@FindBy(name="points")
+	private WebElement rewardPoints;
+	
+	public void sendRewardPoints(String rewardPoints) {
+		this.rewardPoints.sendKeys(rewardPoints);
 	}
 
 	//Opening Design tab

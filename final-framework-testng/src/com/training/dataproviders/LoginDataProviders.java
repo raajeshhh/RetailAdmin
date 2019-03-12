@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 import com.training.bean.LoginBean;
 import com.training.dao.ELearningDAO;
-import com.training.readexcel.ApachePOIExcelRead;
+import com.training.readexcel.ApachePOIExcelRead1;
 import com.training.readexcel.ReadExcel;
 
 public class LoginDataProviders {
@@ -32,13 +32,30 @@ public class LoginDataProviders {
 	
 	@DataProvider(name = "excel-inputs")
 	public Object[][] getExcelData(){
-		String fileName ="C:/Users/Naveen/Desktop/Testing.xlsx"; 
-		return new ApachePOIExcelRead().getExcelContent(fileName); 
+		String fileName ="C:\\Users\\RajeshSillaSilla\\Documents\\selenium_assignment_data.xlsx"; 
+		String SheetName="Sheet1";
+		return new ApachePOIExcelRead1().getExcelContent(fileName,SheetName); 
+	}
+	
+	@DataProvider(name = "excel-inputs1")
+	public Object[][] getExcelData1(){
+		String fileName ="C:\\Users\\RajeshSillaSilla\\Documents\\selenium_assignment_data.xlsx"; 
+		String SheetName="Sheet2";
+		return new ApachePOIExcelRead1().getExcelContent(fileName,SheetName);
+	
+	}
+	
+	@DataProvider(name = "excel-inputs2")
+	public Object[][] getExcelData2(){
+		String fileName ="C:\\Users\\RajeshSillaSilla\\Documents\\selenium_assignment_data.xlsx"; 
+		String SheetName="Sheet3";
+		return new ApachePOIExcelRead1().getExcelContent(fileName,SheetName);
+	
 	}
 	
 	@DataProvider(name = "xls-inputs")
 	public Object[][] getXLSData(){
 		// ensure you will have the title as first line in the file 
-		return new ReadExcel().getExcelData("C:/Users/Naveen/Desktop/Testing.xls", "Sheet1"); 
+		return new ReadExcel().getExcelData("C:\\Users\\RajeshSillaSilla\\Documents\\selenium_assignment_data.xlsx", "Sheet1"); 
 	}
 }

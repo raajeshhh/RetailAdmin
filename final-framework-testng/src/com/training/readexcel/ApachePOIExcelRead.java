@@ -98,4 +98,9 @@ public class ApachePOIExcelRead {
 		}
 
 	}
+
+	public Object[][] getExcelContent(String fileName, String sheetName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

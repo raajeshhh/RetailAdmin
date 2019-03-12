@@ -22,7 +22,7 @@ public class RetailUserDetailsPOM {
 		this.login.click();
 	}
 	
-	//Entering admin email
+	//Entering user email
 	@FindBy(id="input-email")
 	private WebElement email;
 	
@@ -46,6 +46,28 @@ public class RetailUserDetailsPOM {
 	public void clickLoginBtn() {
 			this.loginBtn.click();
 		}
+	
+	@FindBy(xpath="//*[@id=\"menu_all_categories_Menu_VIfWm2LT_Ytne9\"]/ul/li[2]/a/span")
+	private WebElement ethnicLink;
+	
+	public void clickEthnicLink() {
+			this.ethnicLink.click();
+		}
+	
+	@FindBy(xpath="//*[@id=\"ProductsSystem_QQI8r357\"]/div[1]/div[1]/div/div[2]/div[1]/a/span/span/img")
+	private WebElement integerVitaeIaculisMassa;
+	
+	public void clickIntegerVitaeIaculisMassa() {
+			this.integerVitaeIaculisMassa.click();
+		}
+	
+	@FindBy(id="button-cart")
+	private WebElement addToCart;
+	
+	public void clickAddToCart() {
+			this.addToCart.click();
+		}
+	
 	
 	//Clicking user Button for menu
 	@FindBy(xpath="//*[@id=\"Menu_Wmt3OMY3\"]/nav/ul/li[2]/a/span/span/i")
